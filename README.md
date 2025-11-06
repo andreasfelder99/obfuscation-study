@@ -52,20 +52,6 @@ All examples implement the same basic program: prompt for a password and reveal 
 - Manual builds: Apple Clang 17.0.0 (or any C++17 compiler)
 - Automated obfuscation: DeClang v1.0.0 (Obfuscator-LLVM fork)
 
-
-## Ghidra decompiler outputs
-
-Files named like `ghidra*.c` in each folder are exported C decompilations produced by Ghidra after analyzing the corresponding compiled binary. They are included to:
-
-- Compare source vs decompiled output as obfuscation increases
-- Highlight how junk code, data obfuscation, and flattened control flow affect readability and structure
-
-Suggested workflow:
-
-1. Build a variant into `build/<name>`
-2. Import that binary into Ghidra and run analysis
-3. Compare Ghidra's decompiled output with the matching `ghidra*.c` file and original source
-
 ## Automated obfuscation (DeClang)
 
 The `DeClang/` artifacts capture decompilations produced from binaries built with DeClang (a modern fork of obfuscator-llvm). In this study, DeClang was configured for aggressive logical obfuscation (flattening, bogus control-flow, instruction substitution) on optimized code. It produced extremely high logical complexity but left program data (strings) unobfuscated by design.
